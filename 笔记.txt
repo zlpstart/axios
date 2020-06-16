@@ -1,0 +1,77 @@
+【axios请求头封装】
+    请求头的类型
+        content-type
+        
+        1.application/json  数据以json格式请求  {"key":value}
+        2.application/x-www-form-urlncoded form表单数据格式 name = value & name = value
+        3.multipart/form-data 文件上传的格式
+        4.text/xml  格式
+
+【api的封装】
+    export const login = '/login';
+    export const find = '/find';
+
+    import {login,find} = '../util/api.js'
+
+【为什么要用nginx以及windows上的安装测试】
+    两种部署方式
+        1、打包后直接给后台     cnpm run build
+        2、前端独立部署 --- nginx
+        
+    nginx
+        负载均衡、静态服务器、正反向的代理
+
+    网址 http://nginx.org/en/download.html
+        Mainline        所有功能都全的版本
+        Stable version  稳定版
+        Legacy versions 老版本
+
+    用法
+        1.命令环境
+        2.  start nginx         启动
+            nginx -s stop       停止    不保存信息
+            nginx -s quit       停止    保存信息
+            nginx -s reload     重启
+            nginx -v            查看版本
+
+        查看是否成功
+            localhost   默认80端口
+
+        3.build完以后 dist 丢到 http 里面
+        
+        4.配置nginx
+            
+【阿里云服务器的购买使用】
+    官网：
+
+    1.注册
+    2.实名认证
+    3.购物服务器 关于操作系统 sentOS window serve
+        帮你注册好一个实例
+        给你登录名和密码
+    4.控制台 --- 实例 --- 远程连接
+
+        如果密码忘了
+        实例列表 - 密码 -忘记密码
+    5.进入命令行
+
+【阿里云基于sentOS操作系统的部署】
+    1.安装yum   类似npm,下载模块以及模块的依赖
+        yum -y install pcre*
+        yum -y install openssl*
+    2.下载wget 类似于迅雷 下载文件
+        yum install wget
+    3.下载nginx
+        下载到对应目录
+        wget http://nginx.org/download/nginx-1.17.9.tar.gz
+    4.解压
+        tat -zxvf 文件名
+    5.编译安装
+        ./configure
+        make -js && make install
+        会产生一个 nginx文件 所有的操作都在这个里面
+    6.进图nginx文件里面
+        测试是否安装成功
+        ./nginx 启动
+    7.设置安全组
+    8.部署项目
